@@ -142,10 +142,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 
-" TextEdit might fail if hidden is not set.
+" 如果未设置隐藏，TextEdit可能会失败。.
 set hidden
 
-" Some servers have issues with backup files, see #649.
+" 某些服务器的备份文件有问题，请参阅 #649.
 set nobackup
 set nowritebackup
 
@@ -171,6 +171,7 @@ endif
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+" 用tab键选定关键词
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -183,6 +184,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
+" 使用<c-space>触发完成
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
@@ -210,6 +212,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
+" 使用K在预览窗口中显示文档
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -221,18 +224,22 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
+" 按住光标时高亮显示符号及其参照。
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
+" 重命名
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
+" 设置所选代码的格式
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
+  " 安装程序formatexpr指定的文件类型
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -246,6 +253,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
+" 对当前行上的问题应用自动修复。
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Map function and class text objects
